@@ -5,7 +5,7 @@ import { SVG_NS, KEYS } from '../settings';
 
 
 export default class Game {
-  constructor(element, width, height) {
+  constructor(element, width, height, ) {
     this.element = element;
     this.width = width;
     this.height = height;
@@ -44,15 +44,28 @@ export default class Game {
     )
 
     //Ball instance
-    this.ball = new Ball (
+    this.ball = new Ball(
       8,
       this.width,
       this.height
     )
-      
-    }
+
+    document.addEventListener('keydown', event => {
+      switch (event.key) {
+        case KEYS.spaceBar:
+          this.pause = !this.pause;
+          break;
+      }
+    });
+
+
+  }
 
   render() {
+
+    if (this.pause) {
+      return;
+    }
     this.gameElement.innerHTML = '';
 
 
@@ -72,5 +85,6 @@ export default class Game {
 
     //Render ball
     this.ball.render(svg);
+
   }
 }
