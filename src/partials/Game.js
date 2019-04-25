@@ -1,5 +1,6 @@
 import Board from './Board';
 import Paddle from './Paddle';
+import Ball from './Ball';
 import { SVG_NS, KEYS } from '../settings';
 
 
@@ -18,6 +19,7 @@ export default class Game {
     this.paddleWidth = 8;
     this.paddleHeight = 56;
     this.boardGap = 10;
+
 
     //Player 1 instance
     this.player1 = new Paddle(
@@ -40,8 +42,15 @@ export default class Game {
       KEYS.up,
       KEYS.down,
     )
-  }
 
+    //Ball instance
+    this.ball = new Ball (
+      8,
+      this.width,
+      this.height
+    )
+      
+    }
 
   render() {
     this.gameElement.innerHTML = '';
@@ -60,5 +69,8 @@ export default class Game {
     //Render P1 and P2 paddles
     this.player1.render(svg);
     this.player2.render(svg);
+
+    //Render ball
+    this.ball.render(svg);
   }
 }
