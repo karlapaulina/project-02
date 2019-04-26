@@ -6,8 +6,6 @@ export default class Ball {
         this.boardWidth = boardWidth;
         this.boardHeight = boardHeight;
         this.direction = 1;
-
-
         this.reset();
     }
 
@@ -20,6 +18,34 @@ export default class Ball {
 
     }
 
+    paddleCollision(player1, player2) {
+        if (this.vx > 0) {
+            let paddle = player2.coordinates(player2.x, player2.y, player2.width, player2.height)
+            let [leftX, rightX, topY, bottomY] = paddle
+            console.log(paddle);
+            if(
+                (this.x + this.radius >= leftX)
+                && (this.x + this.radius <= rightX)
+                && (this.y >= topY && this.y <= bottomY)
+            ) {
+                this.vx = -this.vx;
+            }
+        } else {
+            console.log(player1)
+            let paddle = player1.coordinates(player1.x, player1.y, player1.width, player1.height)
+            let [leftX, rightX, topY, bottomY] = paddle
+            
+         if (
+            (this.x - this.radius <= rightX)
+            && (this.x - this.radius >= leftX)
+            && (this.y >= topY && this.y <= bottomY)
+        ) {
+            this.vx = -this.vx;
+        }
+        }
+        }
+   
+
     reset() {
         this.x = this.boardWidth / 2;
         this.y = this.boardHeight / 2;
@@ -29,17 +55,17 @@ export default class Ball {
         while(this.vy === 0){
         this.vy = Math.floor(Math.random() * 10 - 5);
     }
-        console.log(this.vy);
         // a number between -5 and 5, based on this.vy
         this.vx = this.direction * (6 - Math.abs(this.vy));
-        console.log(this.vx);
     }
 
-    render(svg) {
+    render(svg, player1, player2) {
+        
         this.x += this.vx;
         this.y += this.vy
 
         this.wallCollision();
+        this.paddleCollision(player1, player2);
 
         let circle = document.createElementNS(SVG_NS, 'circle');
         //your code goes here
@@ -51,4 +77,4 @@ export default class Ball {
         svg.appendChild(circle);
     }
 
-}
+} 

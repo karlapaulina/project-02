@@ -54,16 +54,18 @@ export default class Game {
       switch (event.key) {
         case KEYS.spaceBar:
           this.pause = !this.pause;
+          this.player1.speed =10
+          this.player2.speed = 10 
           break;
       }
     });
-
-
   }
 
   render() {
 
     if (this.pause) {
+      this.player1.speed = 0
+      this.player2.speed =0
       return;
     }
     this.gameElement.innerHTML = '';
@@ -84,7 +86,7 @@ export default class Game {
     this.player2.render(svg);
 
     //Render ball
-    this.ball.render(svg);
+    this.ball.render(svg, this.player1, this.player2);
 
   }
 }
