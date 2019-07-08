@@ -52,12 +52,12 @@ export default class Game {
       this.height
     )
 
-       //Ball instance
-       this.ball2 = new Ball2(
-        5,
-        this.width,
-        this.height
-      )
+    //Ball instance
+    this.ball2 = new Ball2(
+      5,
+      this.width,
+      this.height
+    )
 
     this.score1 = new Score(this.width / 2 - 50, 30, 30);
     this.score2 = new Score(this.width / 2 + 25, 30, 30);
@@ -70,7 +70,7 @@ export default class Game {
           this.player2.speed = 10
           break;
       }
-    });5
+    }); 5
   }
 
 
@@ -103,11 +103,10 @@ export default class Game {
     this.score1.render(svg, this.player1.score);
     this.score2.render(svg, this.player2.score);
 
-    console.log(this.player1.score); 
     //Ball2 instance
     if (this.player1.score >= 5
       ||
-    this.player2.score >= 5) {
+      this.player2.score >= 5) {
       this.ball2.render(svg, this.player1, this.player2);
     }
   }

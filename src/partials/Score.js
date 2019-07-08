@@ -5,19 +5,7 @@ export default class Score {
       this.x = x;
       this.y = y;
       this.size = size;
-    
     }
-
-   /* if (this.player1.score === 1
-        && this.player2.score < 1) {
-        confirm('Player 1 has won')
-        console.log(confirm);
-      } else if (
-        this.player2.score === 1) {
-        confirm('Player 2 has won'),
-          console.log(confirm);
-      } */
-
 
     render(svg, score) {
 

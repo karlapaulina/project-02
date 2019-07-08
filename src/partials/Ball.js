@@ -6,8 +6,8 @@ export default class Ball {
         this.boardWidth = boardWidth;
         this.boardHeight = boardHeight;
         this.direction = 1;
-        this.sound = new Audio("public/sounds/sos.wav");
-        this.sound2 = new Audio("public/sounds/bomb.wav");
+        this.sound = new Audio('public/sounds/sos.wav');
+        this.sound2 = new Audio('public/sounds/bomb.wav');
         this.reset();
     }
 
@@ -24,7 +24,7 @@ export default class Ball {
         if (this.vx > 0) {
             let paddle = player2.coordinates(player2.x, player2.y, player2.width, player2.height)
             let [leftX, rightX, topY, bottomY] = paddle
-           
+
             if (
                 (this.x + this.radius >= leftX)
                 && (this.x + this.radius <= rightX)
@@ -99,7 +99,7 @@ export default class Ball {
 
     }
 
-} 
+}
 
 export class Ball2 {
     constructor(radius, boardWidth, boardHeight) {
@@ -107,8 +107,8 @@ export class Ball2 {
         this.boardWidth = boardWidth;
         this.boardHeight = boardHeight;
         this.direction = 5;
-        this.sound = new Audio("public/sounds/sos.wav");
-        this.sound2 = new Audio("public/sounds/bomb.wav");
+        this.sound = new Audio('public/sounds/sos.wav');
+        this.sound2 = new Audio('public/sounds/bomb.wav');
         this.reset();
     }
 
@@ -125,7 +125,7 @@ export class Ball2 {
         if (this.vx > 0) {
             let paddle = player2.coordinates(player2.x, player2.y, player2.width, player2.height)
             let [leftX, rightX, topY, bottomY] = paddle
-           
+
             if (
                 (this.x + this.radius >= leftX)
                 && (this.x + this.radius <= rightX)

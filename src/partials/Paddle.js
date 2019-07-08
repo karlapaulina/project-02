@@ -21,6 +21,21 @@ export default class Paddle {
             }
           });
         }
+
+    /* var endGame = {
+        maxScore =  ,
+    if (this.player1.score === 10
+        && this.player2.score < 10) {
+        confirm('Player 1 has won');
+        console.log(confirm);
+      } else if (
+        this.player2.score === 10
+        && this.player1.score < 10) {
+        confirm('Player 2 has won');
+          console.log(confirm);
+        } 
+    }*/
+
           
           coordinates(x, y, width, height) {
             let leftX = x;
